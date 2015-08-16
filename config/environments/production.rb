@@ -82,8 +82,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   #added this code for heroku
-  Rails.application.routes.default_url_options[:host] = 'chatty73.herokuapp.com'
-
+  config.action_mailer.default_url_options = { :host => 'chatty73.herokuapp.com' }
+  
   # Sets Paperclip to upload images to Amazon S3
   config.paperclip_defaults = {
     :storage => :s3,
