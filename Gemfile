@@ -12,6 +12,7 @@ gem 'devise'
 gem 'private_pub'
 gem 'thin'
 gem 'foreman'
+gem 'paperclip', '~> 4.3.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 group :development do

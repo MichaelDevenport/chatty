@@ -11,7 +11,7 @@
           <thead>
           <tr>
             <th>#</th>
-            <th>Gravatar</th>
+            <th>Avatar</th>
             <th>Name</th>
             <th></th>
           </tr>
@@ -20,7 +20,7 @@
           <% @users.each_with_index do |user, index| %>
               <tr>
                 <td><%= index +=1 %></td>
-                <td><%= image_tag avatar_url(user) %></td>
+                <td><%= image_tag user.avatar.url(:thumb) %></td>
                 <td><%= user.name %></td>
                 <td>
                   <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
@@ -43,7 +43,7 @@
           <ul class="media-list">
             <% @conversations.each do |conversation| %>
                 <li class="media">
-                  <%= image_tag("http://www.gravatar.com/avatar/f8756c6425f1dbb80ad35190e1513a61?d=mm", :size => "50x50", class: "media-object pull-left") %>
+                  <%= image_tag conversation_interlocutor(conversation).avatar.url(:thumb), :size => "50x50", class: "media-object pull-left" %>
                   <div class="media-body">
                     <%= link_to "", conversation_path(conversation), class: "conversation", "data-cid" => conversation.id %>
                         <h4 class="media-heading"><%= conversation_interlocutor(conversation).name %></h4>
